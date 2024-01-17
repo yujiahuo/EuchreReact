@@ -6,3 +6,10 @@ export enum PlayStage {
 	Playing,
 	EndGame
 }
+
+export enum Seat {
+	North,
+	East,
+	South,
+	West
+}

@@ -1,41 +1,30 @@
 import React, { Component } from 'react';
-import { Suit, Rank } from '../constants/CardEnums';
+import Card from '../models/Card';
 import '../styles/cardSprites.css';
 
-type CardProps = {
-  suit: Suit,
-  rank: Rank
+type CardComponentProps = {
+  cardId: string;
 }
 
-type CardState = {
-  suit: Suit,
-  rank: Rank,
-  cardName: string,
-  zIndex: number
+type CardComponentState = {
+  cardId: string,
+  zIndex: number,
+  cardLocation: null
 }
 
-class CardComponent extends Component<CardProps> {
-  state:CardState = {
-    suit: this.props.suit,
-    rank: this.props.rank,
-    cardName: Suit[this.props.suit] + this.props.rank,
-    zIndex: 1
+class CardComponent extends Component<CardComponentProps> {
+  state:CardComponentState = {
+    cardId: this.props.cardId,
+    zIndex: 1,
+    cardLocation: null
   };
 
   render() {
     return (
-      <div id={this.state.cardName} className="card">
+      <div id={this.state.cardId} className="card">
       
       </div>
     )
-  }
-
-  public changeRankSuit(newSuit: Suit, newRank: Rank) {
-    this.setState(( {
-        suit: newSuit,
-        rank: newRank,
-        cardName: this.state.cardName
-    }))
   }
 }
 
